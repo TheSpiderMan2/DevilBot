@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+cconst Discord = require('discord.js');
 const client = new Discord.Client();
 
 const prefix = "#";
@@ -18,24 +18,37 @@ const bot = new Discord.Client()
 
 
 
- 
-
-
-
-client.on('guildMemberAdd', member => {
-  var logChannel = member.guild.channels.find(c => c.name === 'log');
-  if(!logChannel) return;
- 
-  let newMember = new Discord.RichEmbed()
-  .setTitle('**[NEW MEMBER ADDED]**')
-  .setThumbnail(member.user.avatarURL)
-  .setColor('GREEN')
-  .setDescription(`**\n**:arrow_lower_right: Joined **${member.user.username}** To the server!\n\n**User:** <@${member.user.id}> (ID: ${member.user.id})\n**Days In Discord:** ${Days(member.user.createdAt)}`)
-  .setTimestamp()
-  .setFooter(member.user.tag, member.user.avatarURL)
- 
-  logChannel.send(newMember);
-});
+        var fox = "By KillerFox";  // ممنوع اللمس
+        var perfix = "By KillerFox";
+        console.log('Code BC By KillerFox Embed and Avatar ');
+        client.on('message', message => { // BY KillerFox or ALphaCodes
+            if (message.author.id === client.user.id) return; // BY KillerFox or ALphaCodes
+            if (message.guild) { // BY KillerFox or ALphaCodes
+           let embed = new Discord.RichEmbed()
+            let args = message.content.split(' ').slice(1).join(' '); // BY KillerFox or ALphaCodes
+        if(message.content.split(' ')[0] == '#bc') { // غير امر او برفكس
+            if (!args[1]) { // BY KillerFox or ALphaCodes
+        message.channel.send("**$bc <Messages> :incoming_envelope:  **"); // ممنوع المس
+        return;
+        }
+                message.guild.members.forEach(m => {
+           if(!message.member.hasPermission('ADMINISTRATOR')) return; // ممنوع اللمس
+                    var bc = new Discord.RichEmbed()
+                    .setThumbnail(client.user.avatarURL)
+                    .addField(':beginner: Server :beginner: :twisted_rightwards_arrows: ', `${message.guild.name}`)
+                    .addField(':heartpulse:  Sender :heartpulse: :twisted_rightwards_arrows: ', `${message.author.username}#${message.author.discriminator}`)
+                    .addField(':scroll: Message :scroll: :twisted_rightwards_arrows: ', args)
+                    .addField(':gemini: My Language :gemini: :twisted_rightwards_arrows: ',` JavaScript `)
+                    .setFooter('Devolope Code By KillerFox') // حط اي شي تبيه
+                    .setColor('RANDOM')
+                    // m.send(`[${m}]`);
+                    m.send(`${m}`,{embed: bc});
+                });
+            }
+            } else {
+                return;
+            }
+        });
 
 client.on('message', message => {
     var prefix = "#";
@@ -189,72 +202,114 @@ client.on('message', message => {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
 
-                     message.guild.createRole({ name: "-----ManagamentRoles-----", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Owner", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "CM", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "Community Manager", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "Head Administrator", color: "#ff0000", permissions: [] })
-                     message.guild.createRole({ name: "Senior Administrator", color: "#00e0ff", permissions: [] })
-                     message.guild.createRole({ name: "Administrator", color: "#ff5600", permissions: [] })
-                     message.guild.createRole({ name: "Support Team", color: "#5fee2f",perrmissions: [] })
-                     message.guild.createRole({ name: "Head Moderator", color: "#04a5fa", permissions: [] })
-                     message.guild.createRole({ name: "Senior Moderator", color: "#cb00f8", permissions: [] })
-                     message.guild.createRole({ name: "Moderator", color: "#ff4100", permissions: [] })
-                     message.guild.createRole({ name: "Designer", color: "#0cd7f3", permissions: [] })
-                     message.guild.createRole({ name: "Staff", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "-----GamePassesRoles-----", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "LuckyPass Owner", color: "#e28d13", permissions: [] })
-                     message.guild.createRole({ name: "V.I.P Owner", color: "#00ff3e", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Special Roles-----", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "YouTuber", color: "#fc3939", permissions: [] })
-                     message.guild.createRole({ name: "Giveaways", color: "#2aabfc", permissions: [] })
-                     message.guild.createRole({ name: "Special Bots", color: "#e93535", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "-----RankRoles-----", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "SuPerPower Fan", color: "#13ff00", permissions: [] })
-                     message.guild.createRole({ name: "Godly Fan", color: "#f1ac3f", permissions: [] })
-                     message.guild.createRole({ name: "Legendary Fan", color: "#75ff00", permissions: [] })
-                     message.guild.createRole({ name: "Marshall", color: "#ff8800", permissions: [] })
-                     message.guild.createRole({ name: "The God", color: "#ff0000", permissions: [] })
-                     message.guild.createRole({ name: "The Most Actve", color: "#2900ff", permissions: [] })
-                     message.guild.createRole({ name: "Very Active", color: "#09f2f5", permissions: [] })
-                     message.guild.createRole({ name: "Active", color: "#fabb3d", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Normal Roles-----", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "Muted", color: "#030000", permissions: [] })
-                     message.guild.createRole({ name: "Fan", color: "#fff700", permissions: [] })
-                     message.guild.createRole({ name: "Verified", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "UnVerified", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "Bots", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Inviters Roles-----", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "God of inviting", color: "#00ff17", permissions: [] })
-                     message.guild.createRole({ name: "Amazing Inviter", color: "#7b00ff", permissions: [] })
-                     message.guild.createRole({ name: "Crazy Inviter", color: "#f54848", permissions: [] })
-                     message.guild.createRole({ name: "Serious Inviter", color: "#079cf3", permissions: [] })
-                     message.guild.createRole({ name: "Skilled inviter", color: "#00ffe1", permissions: [] })
-                     message.guild.createRole({ name: "Inviter", color: "#fffa41", permissions: [] })
-                     message.guild.createRole({ name: "Inviter", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Permission Roles-----", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "Friend", color: "#ff00f7", permissions: [] })
-                     message.guild.createRole({ name: "DJ", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Bots Roles-----", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----Reaction Roles-----", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "GameNight Notify", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "Giveaway notify", color: "#fffff", permissions: [] })
-                     message.guild.createRole({ name: "-----------------------", color: "#fffff", permissions: [] })
+                     message.guild.createRole({ name: "Co-Owner", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Leader", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Co-Leader", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "King", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Head Admin", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Admin", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Moderator", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Staff Test", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Staff", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "VIP+", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "VIP", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Friend", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Member", color: "#ffffff", permissions: [] })
+        
 
 message.channel.sendMessage('**Please Wait While Creating The Roles**')
 }
 });
 
 
+client.on('message',async message => {
+  if(message.author.bot) return;
+if(message.content.indexOf(prefix) !== 0) return;
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+if(command === "start") {
+var title = args[0].split('-').join(" ");
+if(args[2]) {
+  message.channel.send(` \`\`\`MD
+  # Title format <word>-<word>-<word>
+  < do not use spaces use - insted
+   \`\`\``);
+}
+var time = args[1].split(":");
+var sec = time[3];
+var min = time[2];
+var hou = time[1];
+var day = time[0];
+ 
+if((hou * 1) > 24) {
+  message.channel.send(` \`\`\`MD
+  # time format <days> : <hours> : <minutes> : <secondes>
+  < hours must be 24 or less
+   \`\`\``);
+}
+else if((sec * 1) > 60) {
+  message.channel.send(` \`\`\`MD
+  # time format <days> : <hours> : <minutes> : <secondes>
+  < minutes must be 60 or less
+  \`\`\``);
+}
+else if((min * 1) > 60) {
+  message.channel.send(` \`\`\`MD
+  # time format <days> : <hours> : <minutes> : <secondes>
+  < seconds must be 60 or less
+  \`\`\``);
+}
+else  {
+ 
+var upgradeTime = sec;
+upgradeTime = upgradeTime * 2 / 2 + (min * 60);
+upgradeTime = upgradeTime * 2 / 2 + (hou * 60 * 60);
+upgradeTime = upgradeTime * 2 / 2 + (day * 24 * 60 * 60);
+var seconds = upgradeTime;
+var duration = (upgradeTime * 1000)
+  if(!message.guild.member(message.author).hasPermission('MANAGE_GUILD')) return message.channel.send(':heavy_multiplication_x:| **s You Dont Have Premission**');
+  if(!args) return message.channel.send(`**Use : #start  <Presentse> <Time>**`);
+  if(!title) return message.channel.send(`**Use : **\`#start ${args[0]} Minutes\`** <Presentse>**`);
+  if(!isNaN(args[1])) return message.channel.send(':heavy_multiplication_x:| **The Time Be Nambers `` Do the Commend Agin``**');
+        let giveEmbed = new Discord.RichEmbed()
+      .setAuthor(message.guild.name, message.guild.iconURL)
+      .setDescription(`**${title}** \nReact Whit 🎁 To Enter! \n**Ends  after   ${day} day  ${hou} hour  ${min} minute ${sec} second**`)
+      .setFooter(message.author.username, message.author.avatarURL);
+      message.channel.send(' :heavy_check_mark: **Giveaway Created** :heavy_check_mark:' , {embed: giveEmbed}).then(m => {
+          message.delete();
+          m.react('🎁');
+              var giveAwayCut = setInterval(function() {
+                  var days        = Math.floor(seconds/24/60/60);
+                  var hoursLeft   = Math.floor((seconds) - (days*86400));
+                  var hours       = Math.floor(hoursLeft/3600);
+                  var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+                  var minutes     = Math.floor(minutesLeft/60);
+                  var remainingSeconds = seconds % 60;
+                  if (seconds != 0) {
+                    seconds--;
+                  }
+              let updateGiveEmbed = new Discord.RichEmbed()
+              .setAuthor(message.guild.name, message.guild.iconURL)
+              .setDescription(`**${title}** \nReact With 🎁 To Enter! \n**Ends  after   ${days} day  ${hours} hour  ${minutes} minute ${remainingSeconds} second**`)
+              .setFooter(message.author.username, message.author.avatarURL);
+              m.edit(updateGiveEmbed)
+            }, 1000);
+         setTimeout(() => {
+          clearInterval(giveAwayCut)
+           let users = m.reactions.get("🎁").users;
+           let list = users.array().filter(u => u.id !== client.user.id);
+           let gFilter = list[Math.floor(Math.random() * list.length) + 0]
+           let endEmbed = new Discord.RichEmbed()
+           endEmbed.setAuthor(message.author.username, message.author.avatarURL)
+           endEmbed.setTitle(title)
+           endEmbed.addField('Giveaway End !🎁',`Winners : ${gFilter}`)
+         m.edit('** 🎁 GIVEAWAY ENDED 🎁**' , {embed: endEmbed});
+         },duration);
+       });
+  }
+}
+});
 
 
 client.on('message', function(message) {
@@ -262,8 +317,8 @@ client.on('message', function(message) {
 if(message.content ===  '%color 100') {
 if(message.member.hasPermission('MANAGE_ROLES')) {
 setInterval(function(){})
-message.channel.send('Wait While I Can Make The Colors Please')
-message.channel.send('** I Must Have ،"MANAGE_ROLES" ❌**')
+message.channel.send('سيتم عمل الالوان انتظر ...')
+message.channel.send('** يجب ان يكون لديك برمشن ،"MANAGE_ROLES" ❌**')
 }
 }
 });
