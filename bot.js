@@ -26,7 +26,7 @@ const bot = new Discord.Client()
             if (message.guild) { // BY KillerFox or ALphaCodes
            let embed = new Discord.RichEmbed()
             let args = message.content.split(' ').slice(1).join(' '); // BY KillerFox or ALphaCodes
-        if(message.content.split(' ')[0] == '#bc') { // غير امر او برفكس
+        if(message.content.split(' ')[0] == '$bc') { // غير امر او برفكس
             if (!args[1]) { // BY KillerFox or ALphaCodes
         message.channel.send("**$bc <Messages> :incoming_envelope:  **"); // ممنوع المس
         return;
